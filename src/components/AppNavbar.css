@@ -1,0 +1,21 @@
+.movie-navbar {
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcc00 !important;
+}
+
+.movie-navbar .navbar-nav .nav-link {
+  color: #f5f5f5 !important;
+  margin-right: 10px;
+}
+
+.movie-navbar .navbar-nav .nav-link:hover {
+  color: #ffcc00 !important;
+  transition: color 0.3s ease-in-out;
+}
