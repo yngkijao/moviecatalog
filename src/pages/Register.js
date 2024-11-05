@@ -3,7 +3,6 @@ import { Form, Button, Container } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import { Notyf } from 'notyf';
-import './Register.css'; // Make sure to import the CSS file
 
 export default function Register() {
   const notyf = new Notyf();
@@ -51,7 +50,7 @@ export default function Register() {
 
   return (
     (user.id !== null) ? <Navigate to="/movies" /> :
-      <Container className="register-container">
+      <Container>
         <h1 className="my-5 text-center">Register</h1>
         <Form onSubmit={registerUser}>
           <Form.Group>
@@ -62,7 +61,6 @@ export default function Register() {
               required
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="short-input"
             />
           </Form.Group>
           <Form.Group>
@@ -73,7 +71,6 @@ export default function Register() {
               required
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="short-input"
             />
           </Form.Group>
           <Form.Group>
@@ -84,7 +81,6 @@ export default function Register() {
               required
               value={confirmPassword}
               onChange={e => setConfirmPassword(e.target.value)}
-              className="short-input"
             />
           </Form.Group>
           {isActive ? 

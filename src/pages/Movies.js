@@ -7,19 +7,20 @@ export default function Movies() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetch('https://movieapp-api-lms1.onrender.com/movies')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
+    const fetchMovies = async () => {
+      try {
+        const response = await fetch('https://movieapp-api-lms1.onrender.com/movies/getMovies');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setMovies(data.movies);
+      } catch (error) {
+        console.error("Error fetching movies:", error);
       }
-      return res.json();
-    })
-    .then(data => {
-      setMovies(data.movies);
-    })
-    .catch(error => {
-      console.error("Error fetching movies:", error);
-    });
+    };
+
+    fetchMovies();
   }, []);
 
   return (

@@ -39,13 +39,16 @@ function App() {
           unsetUser();
         }
       })
-      .catch(() => {
+      .catch(error => {
+        console.error('Error fetching user details:', error);
         unsetUser();
       });
     } else {
       unsetUser();
     }
   }, []);
+
+  console.log('User state:', user);
 
   return (
     <UserProvider value={{user, setUser, unsetUser}}>

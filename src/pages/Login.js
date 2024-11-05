@@ -4,7 +4,6 @@ import { Navigate, Link } from 'react-router-dom';
 import UserContext from '../context/UserContext';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
-import './Login.css';  // Make sure to import the CSS file
 
 export default function Login() {
   const notyf = new Notyf();
@@ -70,7 +69,7 @@ export default function Login() {
   }
 
   return (
-    <Form onSubmit={authenticate} className="text-center login-container">
+    <Form onSubmit={authenticate} className="text-center">
       <h1 className="my-5">Login</h1>
       <Form.Group controlId="userEmail">
         <Form.Label>Email address</Form.Label>
@@ -80,7 +79,6 @@ export default function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="short-input"
         />
       </Form.Group>
       <Form.Group controlId="password">
@@ -91,7 +89,6 @@ export default function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="short-input"
         />
       </Form.Group>
       {isActive ? 
